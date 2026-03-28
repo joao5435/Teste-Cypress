@@ -48,5 +48,17 @@ describe('template spec', () => {
 
     cy.get('#details').type('Esses são os detalhes do formulário')
 
+    const techs = ['React', 'Node.js', 'Cypress'];
+
+
+
+    techs.forEach((tech) => {
+      cy.get('#technologies')
+        .type(`${tech}{enter}`);
+    });
+
+   cy.get('input[type="checkbox"]').check();
+
+   cy.contains('button', 'Enviar formulário').click()
   })
 })
